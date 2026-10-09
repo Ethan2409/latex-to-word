@@ -19,17 +19,19 @@ LaTeX 公式转 Word 论文格式的 VBA 宏，自动处理斜体/正体/上下�
 
 | 宏名 | 用法 |
 |---|---|
-| `PasteAsTextAndConvertLatex` | 先复制 LaTeX 到剪贴板，再运行宏（自动粘贴并转换） |
-| `ConvertLatexInSelection` | 先选中要转换的段落，再运行宏 |
+| [PasteAsTextAndConvertLatex](macro/PasteAsTextAndConvertLatex.bas) | 先从把ai生成的内容复制一下（按crtl+C），再运行宏（自动粘贴并转换） |
+| ConvertLatexInSelection](macro/ConvertLatexInSelection.bas) | 先从把ai生成的内容以纯文本形式复制到word，然后选中要转换的段落，再运行宏 |
 
 两个宏转换逻辑完全相同，只是输入源不同：一个吃剪贴板，一个吃选区。
 
 ## 安装
 
-1. 打开 Word，`Alt` + `F11` 打开 VBA 编辑器
-2. 插入 → 模块
-3. 把 `macro/` 下对应 `.bas` 文件的内容粘贴进去
-4. 回到 Word 使用
+1. 把 [Latex约束](macro/Latex约束.md) 添加到ai智能体(如codex或claude)项目下的AGENTS.md中
+2. 打开 Word，`Alt` + `F11` 打开 VBA 编辑器
+3. 插入 → 模块
+4. 把 `macro/` 下对应 `.bas` 文件的内容粘贴进去
+5. 给宏设置快捷键（方法很简单，可以直接百度）
+6. 回到 Word 使用
 
 ## 转换规则（支持的范围）
 
@@ -43,16 +45,6 @@ LaTeX 公式转 Word 论文格式的 VBA 宏，自动处理斜体/正体/上下�
 
 - `$$...$$`（双美金）独立公式块会被跳过，不转换
 - 只覆盖上面列出的符号和希腊字母，`\frac`、`\sqrt` 等其他 LaTeX 命令不在处理范围内
-
-## Latex约束添加到全局规则
-
-- 仅允许在正文中的行内数学表达式使用 LaTeX 格式。
-- 行内数学表达式必须使用单美元符号 `$...$` 包围，例如：`$C_{\text{crit}}$`、`$x=1$`。
-- 禁止使用任何独立公式（display math）LaTeX 环境。
-- 禁止使用 `$$...$$`、`\(...\)` 和 `\[...\]` 作为公式分隔符。
-- 当数学表达式或方程单独成行时，不要将其转换为 LaTeX 数学环境；保持普通 Markdown / 纯文本格式输出。
-- 普通正文、术语、软件名称和缩写不得使用 LaTeX 编码，例如 LaTeX、COMSOL 等必须直接以普通文本书写，禁止使用 `\LaTeX`、`\text{COMSOL}` 等形式。
-- LaTeX 命令只用于 `$...$` 内部的行内数学表达式，不得用于普通正文。
 
 ## License
 
