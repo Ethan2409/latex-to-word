@@ -94,6 +94,7 @@ Sub PasteAsTextAndConvertLatex()
                 ' 符号转换与清洗
                 txt = Replace(txt, "-", ChrW(&H2212)) ' 转换为标准减号
                 txt = Replace(txt, "\times", ChrW(&H00D7)) ' 转换为标准乘号
+                txt = Replace(txt, "\cdot", ChrW(&H22C5))   ' 转换为点乘号
                 txt = Replace(txt, "\Phi", ChrW(&H3A6))
                 txt = Replace(txt, "\phi", ChrW(&H3C6))
                 txt = Replace(txt, "\alpha", ChrW(&H3B1))
