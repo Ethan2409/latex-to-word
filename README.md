@@ -20,7 +20,7 @@ LaTeX 公式转 Word 论文格式的 VBA 宏，自动处理斜体/正体/上下�
 | 宏名 | 用法 |
 |---|---|
 | [PasteAsTextAndConvertLatex](macro/PasteAsTextAndConvertLatex.bas) | 先从把ai生成的内容复制一下（按crtl+C），再运行宏（自动粘贴并转换） |
-| ConvertLatexInSelection](macro/ConvertLatexInSelection.bas) | 先从把ai生成的内容以纯文本形式复制到word，然后选中要转换的段落，再运行宏 |
+| [ConvertLatexInSelection](macro/ConvertLatexInSelection.bas) | 先从把ai生成的内容以纯文本形式复制到word，然后选中要转换的段落，再运行宏 |
 
 两个宏转换逻辑完全相同，只是输入源不同：一个吃剪贴板，一个吃选区。
 
